@@ -13,7 +13,7 @@ This is the process I use to add a new slot (whether that's a costume or an echo
 5. Copy the new mod folder to your SD card if you haven't already done so.
 
 6. Open CSS Manager and change the Amount of Colors for the desired character.
-6a. [ECHO FIGHTER ONLY] Duplicate the base character to create the echo slot. Change the Echo Fighter and Fighter Type fields as needed for both the base and echo characters (use Peach+Daisy as an example). Change other fields for the echo fighter as desired.
+6a. [ECHO FIGHTER ONLY] Duplicate the base character to create the echo slot. Change the Echo Fighter and Fighter Type fields as needed for both the base and echo characters (use Peach+Daisy as an example). Change the Color Start Index for the echo fighter's slot to 100 (or whatever you used in step 3a). Change other fields for the echo fighter as desired.
 6b. Save the layout, click Open Save Directory, and copy the three files into a separate mod titled something like "CSS (Required)". Make sure the folder structure is correct!
 
 7. If the mod includes custom audio, drag and drop the mod folder onto Extra Slot Voice Fixer to fix the audio. If not, you can skip this step.

@@ -14,6 +14,9 @@ def file_is_audio(filename):
 def file_is_bank(filename):
 	return path.splitext(filename)[1] == ".nus3bank"
 
+def file_is_tonelabel(filename):
+    return path.splitext(filename)[1] == ".tonelabel"
+
 def file_is_cheer(filename):
 	return "_cheer" in path.basename(filename)
 
@@ -55,17 +58,23 @@ def main():
         mod_sound_dir_voice = path.join(mod_sound_dir, "fighter_voice")
         mod_contains_se_nus3audio = any([file_is_audio(f) for f in safe_listdir(mod_sound_dir_se)])
         mod_contains_se_nus3bank = any([file_is_bank(f) for f in safe_listdir(mod_sound_dir_se)])
+        mod_contains_se_tonelabel = any([file_is_tonelabel(f) for f in safe_listdir(mod_sound_dir_se)])
         mod_contains_vc_nus3audio = any([(file_is_audio(f) and not file_is_cheer(f)) for f in safe_listdir(mod_sound_dir_voice)])
         mod_contains_vc_nus3bank = any([(file_is_bank(f) and not file_is_cheer(f)) for f in safe_listdir(mod_sound_dir_voice)])
+        mod_contains_vc_tonelabel = any([(file_is_tonelabel(f) and not file_is_cheer(f)) for f in safe_listdir(mod_sound_dir_voice)])
         mod_contains_cheer_nus3audio = any([(file_is_audio(f) and file_is_cheer(f)) for f in safe_listdir(mod_sound_dir_voice)])
         mod_contains_cheer_nus3bank = any([(file_is_bank(f) and file_is_cheer(f)) for f in safe_listdir(mod_sound_dir_voice)])
+        mod_contains_cheer_tonelabel = any([(file_is_tonelabel(f) and file_is_cheer(f)) for f in safe_listdir(mod_sound_dir_voice)])
 
         print(f"Sound Effect nus3audio: {mod_contains_se_nus3audio}")
         print(f"Sound Effect nus3bank:  {mod_contains_se_nus3bank}")
+        print(f"Sound Effect tonelabel: {mod_contains_se_tonelabel}")
         print(f"Voice nus3audio:        {mod_contains_vc_nus3audio}")
         print(f"Voice nus3bank:         {mod_contains_vc_nus3bank}")
+        print(f"Voice tonelabel:        {mod_contains_vc_tonelabel}")
         print(f"Cheer nus3audio:        {mod_contains_cheer_nus3audio}")
         print(f"Cheer nus3bank:         {mod_contains_cheer_nus3bank}")
+        print(f"Cheer tonelabel:        {mod_contains_cheer_tonelabel}")
 
         # Read the config JSON file
         with open(config_file_path, 'r') as file:
@@ -85,10 +94,13 @@ def main():
                     if not (
                         (mod_contains_se_nus3audio and file_is_audio(key) and "/fighter/se_" in key)
                         or (mod_contains_se_nus3bank and file_is_bank(key) and "/fighter/se_" in key)
+                        or (mod_contains_se_tonelabel and file_is_tonelabel(key) and "/fighter/se_" in key)
                         or (mod_contains_vc_nus3audio and file_is_audio(key) and not file_is_cheer(key) and "/fighter_voice/vc_" in key)
                         or (mod_contains_vc_nus3bank and file_is_bank(key) and not file_is_cheer(key) and "/fighter_voice/vc_" in key)
+                        or (mod_contains_vc_tonelabel and file_is_tonelabel(key) and not file_is_cheer(key) and "/fighter_voice/vc_" in key)
                         or (mod_contains_cheer_nus3audio and file_is_audio(key) and file_is_cheer(key) and "/fighter_voice/vc_" in key)
                         or (mod_contains_cheer_nus3bank and file_is_bank(key) and file_is_cheer(key) and "/fighter_voice/vc_" in key)
+                        or (mod_contains_cheer_tonelabel and file_is_tonelabel(key) and file_is_cheer(key) and "/fighter_voice/vc_" in key)
                     )
                 }
                 print(f"New share_to_vanilla size: {len(share_to_vanilla.keys())}")
