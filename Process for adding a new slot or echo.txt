@@ -1,0 +1,19 @@
+This is the process I use to add a new slot (whether that's a costume or an echo fighter) to Smash Ultimate. It's unpolished and only for my own benefit, but I'm throwing it into this repo in case anyone else needs it.
+
+1. Download the mod you want to add.
+
+2. [ECHO FIGHTER ONLY] Temporarily move/rename the ui folder; it will be handled later.
+
+3. Open the mod in reslotterGUI and change the slot(s) to whatever you want, as long as the desired slot is not currently in use. The output will be created as a new mod folder.
+3a. [ECHO FIGHTER ONLY] (Optional, but recommended) Start from slot c100 to keep echo fighters distinct from normal costume slots.
+3b. Compare the output to the original mod folder. If the mod uses anything that doesn't transfer over to the output (such as a plugin.nro or /sound/bank/narration folder), decide whether or not it should be copied over manually.
+
+4. [ECHO FIGHTER ONLY] Rename the ui folder back to ui, copy it to the output, manually rename the slots in ui to use 00-07 if they're not already named accordingly (if it's a full replacement/echo, they probably are), and use Bulk Rename Utility to rename everything in the ui folder to use the new character's name (e.g. change all "koopa" to "midbus").
+
+5. Copy the new mod folder to your SD card if you haven't already done so.
+
+6. Open CSS Manager and change the Amount of Colors for the desired character.
+6a. [ECHO FIGHTER ONLY] Duplicate the base character to create the echo slot. Change the Echo Fighter and Fighter Type fields as needed for both the base and echo characters (use Peach+Daisy as an example). Change other fields for the echo fighter as desired.
+6b. Save the layout, click Open Save Directory, and copy the three files into a separate mod titled something like "CSS (Required)". Make sure the folder structure is correct!
+
+7. If the mod includes custom audio, drag and drop the mod folder onto Extra Slot Voice Fixer to fix the audio. If not, you can skip this step.
