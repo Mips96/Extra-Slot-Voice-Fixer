@@ -1,4 +1,7 @@
 # Extra Slot Voice Fixer for reslotterGUI
+**THIS PROGRAM IS NOW OBSOLETE! The sound bug has been fixed with reslotterGUI v3.0.**
+
+## Original Description
 [reslotterGUI](https://github.com/CSharpM7/reslotter) v2.5.1 (the latest version at the time of writing this) has a bug where voice mods will not work properly for extra slots, usually muting them. This is because nus3audio and nus3bank entries for sound effects (`sound/bank/fighter/se_CHAR_cXX`), voice (`sound/bank/fighter_voice/vc_CHAR_cXX`), and audience cheer (`sound/bank/fighter_voice/vc_CHAR_cheer_cXX`) are created in the generated config.json in `share-to-vanilla` regardless of whether or not they’re actually needed.
 
 This utility fixes that bug. Simply **drag and drop one or multiple mod folders onto the executable** and it will fix each mod’s config.json by scanning for and removing unneeded entries. Mods that don’t need to be fixed (either because they don’t have audio or have already been fixed) are unaffected.
